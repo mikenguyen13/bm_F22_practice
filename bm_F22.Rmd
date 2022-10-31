@@ -43,7 +43,7 @@ getwd()
 ```
 
 ```{r}
-df <- rio::import("C:\\Users\\miken\\Downloads\\Riot Games - posts.xlsx") %>% 
+df <- rio::import("Riot Games - posts.xlsx") %>% 
   mutate(published = as.Date(published, "%Y-%m-%d"))
 head(df)
 
@@ -131,7 +131,7 @@ dt$clean_text <- dt$body %>%
 
 ```{r}
 text_corpus <-
-  Corpus(VectorSource(dt$clean_text)) %>%
+  Corpus(VectorSource(dt$clean_text[1:1000])) %>%
   tm_map(content_transformer(tolower)) %>%
   tm_map(function(x)
     removeWords(x, stopwords("english"))) #%>%
@@ -335,7 +335,7 @@ forceNetwork(
 
 Compare to Infegy dashboard
 
-![](images/paste-2B97307F.png)
+![](paste-2B97307F.png)
 
 # Brand Reputation
 
